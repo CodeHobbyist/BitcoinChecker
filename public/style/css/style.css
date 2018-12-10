@@ -1,0 +1,20 @@
+body {
+  background: #D3D3D3 !important;
+}
+.bitcoin-header .col-md-6 {
+  background: #f4f4f4;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bitcoin-header h3 {
+  font-weight: bold;
+}
+.bitcoin-content {
+  background: #ffffff;
+}
+.bitcoin-content .bitcoin-theme-changer,
+.bitcoin-content .bitcoin-rate {
+  height: 250px;
+}
