@@ -8,10 +8,10 @@ import * as serviceWorker from './components/serviceWorker';
 class App extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <BitcoinHeader />
         <BitcoinContent />
-      </div>
+      </React.Fragment>
     );
   }
 }
