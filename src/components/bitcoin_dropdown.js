@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
 import 'react-dropdown/style.css';
 import Dropdown from 'react-dropdown';
-
-const options = [
-  'Choose Currency', 'USD', 'GBP', 'EURO'
-]
-
-const defaultOption = options[0];
+import axios from 'axios';
+import { ROOT_URL } from '../index';
 
 class BitcoinDropDown extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = { term: [] };
+  }
+
+  componentDidMount(){
+      axios.get(ROOT_URL).then( (response) => {
+        const options = Object.keys(response.data.bpi);
+        this.setState({
+            term: options
+        })
+      });
+  }
+
   render(){
     return(
-      <Dropdown
-        options={options}
+       <Dropdown
+        options={this.state.term}
         onChange={this._onSelect}
-        value={defaultOption}
-        placeholder="Select an option"
+        value=''
+        placeholder="Choose Currency"
         />
     );
   }
