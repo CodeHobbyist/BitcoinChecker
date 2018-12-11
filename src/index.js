@@ -4,6 +4,7 @@ import BitcoinHeader from './components/bitcoin_header';
 import BitcoinContent from './components/bitcoin_content';
 import * as serviceWorker from './components/serviceWorker';
 
+export const ROOT_URL = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
 class App extends Component {
   render() {
