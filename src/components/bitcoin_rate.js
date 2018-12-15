@@ -1,15 +1,10 @@
 import React from 'react';
-
 const BitcoinRate = ({postSelectedCurrency, postCurrencyVal, postCurrencyDesc, fontSizeTitle, fontSizePhrase}) => {
-
 let bitcoinPhrase = `Bitcoin Rate For ${postCurrencyDesc}, ${postSelectedCurrency} ${postCurrencyVal}`;
-
 if(postSelectedCurrency === '' || postSelectedCurrency === 'default'){
-
-     bitcoinPhrase = "Please Choose Bitcoin Currency"
+    bitcoinPhrase = "Please Choose Bitcoin Currency"
  }
-
- return(
+return(
     <div className="bitcoin-rate col-md-12 col-xs-12">
       <div className="col-md-12 col-xs-12">
         <h3 style={{fontSize: fontSizeTitle +'px'}}>Check current bitcoin rate:</h3>
@@ -19,7 +14,6 @@ if(postSelectedCurrency === '' || postSelectedCurrency === 'default'){
       </div>
     </div>
   );
-
 };
 
 export default BitcoinRate;

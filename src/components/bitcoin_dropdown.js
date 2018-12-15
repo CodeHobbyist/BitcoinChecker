@@ -5,25 +5,27 @@ import { ROOT_URL } from '../index';
 class BitcoinDropDown extends Component {
   constructor(props){
     super(props);
-
     this.state = {
       term: [],
       selectedCurrency: '',
     };
   }
-
   componentDidMount(){
-      axios.get(ROOT_URL).then( (response) => {
-        const options = Object.keys(response.data.bpi);
-        this.setState({
-            term: options
-        })
-      });
+        axios.get(ROOT_URL).then( (response) => {
+          const options = Object.keys(response.data.bpi);
+          this.setState({
+              term: options
+          })
+        });
+  }
+  _onHandleChange(value) {
+    this.setState({
+       selectedCurrency: value
+    })
+    this.props.onSelectChange(value);
 }
-
 render(){
-
-   return(
+  return(
        <select
          onChange={event => this._onHandleChange(event.target.value)}
         >
@@ -33,13 +35,6 @@ render(){
          })}
        </select>
      );
-  }
-
-  _onHandleChange(value) {
-      this.setState({
-         selectedCurrency: value
-      })
-      this.props.onSelectChange(value);
   }
 }
 
