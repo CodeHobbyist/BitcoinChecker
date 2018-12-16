@@ -1,38 +1,178 @@
+//less variables
+@default_txt_color: black !important;
+@green: green !important;
+@blue: blue !important;
+@yellow: yellow !important;
+@pink: pink !important;
+
+.themeColor-green
+{
+  background-color: @green;
+}
+.themeColor-blue
+{
+  background-color: @blue;
+}
+.themeColor-yellow
+{
+  background-color: @yellow;
+}
+.themeColor-pink
+{
+  background-color: @pink;
+}
+
 body {
   background: #D3D3D3 !important;
-}
-.container
-{
-  .bitcoin-header
+  color: @default_txt_color;
+
+
+  .container
   {
-        .col-md-6
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .bitcoin-header
+    {
+          .col-md-6
+          {
+            background: #f4f4f4;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          h3
+          {
+            font-weight: bold;
+          }
+          select
+          {
+            width: 250px;
+            height: 37px;
+            border-radius: 7px;
+            font-size: 18px;
+            font-weight: 600;
+            text-align-last: center;
+          }
+    }
+    .bitcoin-content
+    {
+      background: #ffffff;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      .bitcoin-theme-changer
+      {
+        padding-left: 0;
+        .col-md-5
         {
-          background: #f4f4f4;
-          height: 80px;
+            border:1px solid green;
+            border-radius: 10px;
+            h3:first-child
+            {
+              text-align: center;
+            }
+            .change-color-row
+            {
+              margin-right: 0;
+              margin-left: 0;
+              .active, .default
+              {
+                border:2px solid red;
+                pointer-events: none;
+              }
+              .col-md-3
+              {
+                width: 20%;
+                margin-right: 10px;
+                cursor: pointer;
+              }
+              .col-md-3:hover
+              {
+                cursor: pointer;
+              }
+              .col-md-3:first-child
+              {
+                background-color: green;
+                height: 40px;
+                border-radius: 8px;
+              }
+              .col-md-3:nth-child(2)
+              {
+                background-color: blue;
+                height: 40px;
+                border-radius: 8px;
+              }
+              .col-md-3:nth-child(3)
+              {
+                background-color: yellow;
+                height: 40px;
+                border-radius: 8px;
+              }
+              .col-md-3:nth-child(4)
+              {
+                background-color: pink;
+                height: 40px;
+                border-radius: 8px;
+              }
+            }
+            .increase-text-row
+            {
+              margin-right: 0;
+              margin-left: 0;
+              margin-bottom: 20px;
+              .col-md-3
+              {
+                height: 50px;
+                background-color: white;
+                border:2px solid green;
+                border-radius: 8px;
+                margin-right: 10px;
+                text-align:center;
+                font-size: 32px;
+                cursor: pointer;
+
+                span
+                {
+                  pointer-events: none;
+                }
+              }
+              .col-md-3:hover
+              {
+                cursor: pointer;
+              }
+              .col-md-3:active {
+                background-color: red;
+              }
+            }
+
+        }
+
+      }
+      .bitcoin-rate
+      {
+        padding-left: 0;
+        padding-right: 0;
+        .col-md-12:nth-child(1)
+        {
+          padding-left: 0;
+        }
+        .col-md-12:nth-child(2)
+        {
+          height:250px;
           display: flex;
           align-items: center;
           justify-content: center;
+          border: 1px solid green;
         }
-        h3
+        p
         {
-          font-weight: bold;
+           font-weight: 600;
         }
-        .Dropdown-root
-        {
-          .Dropdown-control
-          {
-            width:220px;
-            border-radius: 7px;
-          }
-        }
-  }
-  .bitcoin-content
-  {
-    background: #ffffff;
-    .bitcoin-theme-changer, .bitcoin-rate
-    {
-      height:250px;
+
+      }
     }
+
   }
 
 }

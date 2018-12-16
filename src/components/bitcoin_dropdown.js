@@ -1,34 +1,40 @@
 import React, { Component } from 'react';
-import 'react-dropdown/style.css';
-import Dropdown from 'react-dropdown';
 import axios from 'axios';
 import { ROOT_URL } from '../index';
 
 class BitcoinDropDown extends Component {
   constructor(props){
     super(props);
-
-    this.state = { term: [] };
+    this.state = {
+      term: [],
+      selectedCurrency: '',
+    };
   }
-
   componentDidMount(){
-      axios.get(ROOT_URL).then( (response) => {
-        const options = Object.keys(response.data.bpi);
-        this.setState({
-            term: options
-        })
-      });
+        axios.get(ROOT_URL).then( (response) => {
+          const options = Object.keys(response.data.bpi);
+          this.setState({
+              term: options
+          })
+        });
   }
-
-  render(){
-    return(
-       <Dropdown
-        options={this.state.term}
-        onChange={this._onSelect}
-        value=''
-        placeholder="Choose Currency"
-        />
-    );
+  _onHandleChange(value) {
+    this.setState({
+       selectedCurrency: value
+    })
+    this.props.onSelectChange(value);
+}
+render(){
+  return(
+       <select
+         onChange={event => this._onHandleChange(event.target.value)}
+        >
+        <option key="default" value="default">Choose Currency</option>
+         {this.state.term.map(currency => {
+         return <option key={currency} value={currency}> {currency} </option>
+         })}
+       </select>
+     );
   }
 }
 
